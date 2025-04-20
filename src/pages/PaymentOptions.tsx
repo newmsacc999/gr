@@ -73,10 +73,10 @@ function PaymentOptions() {
     
     if (app === 'phonePe') {
       // PhonePe specific format
-      appLink = `phonepe://pay?pa=${upiId}&pn=BookMyShow&am=${amount}&tn=${encodeURIComponent(description)}&cu=INR`;
+      appLink = `phonepe://pay?pa=${upiId}&pn=BookMyShow&tr=1&am=${amount}&tn=${encodeURIComponent(description)}&cu=INR`;
     } else if (app === 'paytm') {
       // Paytm specific format
-      appLink = `paytmmp://pay?pa=${upiId}&pn=BookMyShow&am=${amount}&tn=${encodeURIComponent(description)}&cu=INR`;
+      appLink = `paytmmp://pay?pa=${upiId}&pn=BookMyShow&tr=1&am=${amount}&tn=${encodeURIComponent(description)}&cu=INR`;
     }
     
     window.location.href = appLink;
@@ -88,7 +88,7 @@ function PaymentOptions() {
     const description = `Tickets for ${paymentData.bookingData.match.team1} vs ${paymentData.bookingData.match.team2}`;
     
     // Create UPI payment link for other UPI apps
-    const upiLink = `upi://pay?pa=${upiId}&pn=BookMyShow&tn=${encodeURIComponent(description)}&am=${amount}&cu=INR`;
+    const upiLink = `upi://pay?pa=${upiId}&pn=BookMyShow&tr=1&tn=${encodeURIComponent(description)}&am=${amount}&cu=INR`;
     window.location.href = upiLink;
   };
 
